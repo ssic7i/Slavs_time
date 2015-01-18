@@ -1,3 +1,8 @@
+__author__ = 'Serhii Sheiko sergy@sheyko.pp.ua'
+# http://energodar.net/vedy/kalendar.html
+# http://midgard-svaor.com/mernye-velichiny-nashix-predkov/
+
+
 import datetime
 
 
