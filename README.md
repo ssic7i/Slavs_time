@@ -6,3 +6,7 @@ Information about time and currency:
 http://energodar.net/vedy/kalendar.html
 
 http://midgard-svaor.com/mernye-velichiny-nashix-predkov/
+
+Dependency: pyqt4
+
+Tested on python 2.7
