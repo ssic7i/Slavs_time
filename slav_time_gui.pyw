@@ -20,7 +20,7 @@ class MainWindow(QtGui.QMainWindow):
         QtGui.QMainWindow.__init__(self)
         #if os.path.exists('slav_time_gui.ui'):
         #    uic.loadUi('slav_time_gui.ui', self)
-        #elif os.path.exist(sys.argv[0][:0-len('slav_time_gui.pyw')] + 'slav_time_gui.ui'):
+        #elif os.path.exists(sys.argv[0][:0-len('slav_time_gui.pyw')] + 'slav_time_gui.ui'):
         #    uic.loadUi(sys.argv[0][:0-len('slav_time_gui.pyw')] + 'slav_time_gui.ui', self)
         self.ui=Ui_Form()
         self.ui.setupUi(self)
@@ -28,7 +28,7 @@ class MainWindow(QtGui.QMainWindow):
         if os.path.exists('slav_time_gui.png'):
             self.setWindowIcon(QtGui.QIcon('slav_time_gui.png'))
             self.trayIcon = QtGui.QSystemTrayIcon(QtGui.QIcon('slav_time_gui.png'))
-        elif os.path.exist(sys.argv[0][:0-len('slav_time_gui.pyw')] + 'slav_time_gui.png'):
+        elif os.path.exists(sys.argv[0][:0-len('slav_time_gui.pyw')] + 'slav_time_gui.png'):
             self.setWindowIcon(QtGui.QIcon(sys.argv[0][:0-len('slav_time_gui.pyw')] + 'slav_time_gui.png'))
             self.trayIcon = QtGui.QSystemTrayIcon(QtGui.QIcon(sys.argv[0][:0-len('slav_time_gui.pyw')] + 'slav_time_gui.png'))
 
