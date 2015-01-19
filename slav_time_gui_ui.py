@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'slav_time_gui.ui'
 #
-# Created: Sun Jan 18 23:06:22 2015
+# Created: Mon Jan 19 11:41:26 2015
 #      by: PyQt4 UI code generator 4.11.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,7 +26,10 @@ except AttributeError:
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
-        Form.resize(223, 76)
+        Form.resize(200, 90)
+        Form.setMinimumSize(QtCore.QSize(200, 90))
+        Form.setMaximumSize(QtCore.QSize(200, 90))
+        Form.setBaseSize(QtCore.QSize(200, 90))
         self.progressBar_h = QtGui.QProgressBar(Form)
         self.progressBar_h.setGeometry(QtCore.QRect(110, 10, 118, 13))
         self.progressBar_h.setMaximum(15)
@@ -67,6 +70,9 @@ class Ui_Form(object):
         self.progressBar_d.setProperty("value", 0)
         self.progressBar_d.setFormat(_fromUtf8(""))
         self.progressBar_d.setObjectName(_fromUtf8("progressBar_d"))
+        self.label_cur_time = QtGui.QLabel(Form)
+        self.label_cur_time.setGeometry(QtCore.QRect(10, 70, 201, 16))
+        self.label_cur_time.setObjectName(_fromUtf8("label_cur_time"))
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -79,4 +85,5 @@ class Ui_Form(object):
         self.label_h.setText(_translate("Form", "0", None))
         self.label_c.setText(_translate("Form", "0", None))
         self.label_d.setText(_translate("Form", "0", None))
+        self.label_cur_time.setText(_translate("Form", "0", None))
 

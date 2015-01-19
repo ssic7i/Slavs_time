@@ -6,9 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>223</width>
-    <height>76</height>
+    <width>200</width>
+    <height>90</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>200</width>
+    <height>90</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>200</width>
+    <height>90</height>
+   </size>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>200</width>
+    <height>90</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Time</string>
@@ -154,6 +172,19 @@
    </property>
    <property name="format">
     <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_cur_time">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>70</y>
+     <width>201</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
    </property>
   </widget>
  </widget>

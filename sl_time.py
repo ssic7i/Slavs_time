@@ -20,11 +20,11 @@ def cur_conv_time(timezone):
     #print(cur_minutes)
     #print(cur_sec)
     c_secs = cur_hour * 60 * 60 + cur_minutes * 60 + cur_sec
-    all_dol = c_secs * 34.5
+    all_dol = c_secs * 34.56
     #print('Dolej: ' + str(all_dol))
-    cov_hour = all_dol // 186624
+    cov_hour = all_dol // (1296 * 144)
     #print('Hours:' + str(cov_hour))
-    ost_chastey = all_dol % 186624
+    ost_chastey = all_dol % (1296 * 144)
     chastey = ost_chastey // 1296
     #print('Chastey:' + str(chastey))
     doley = ost_chastey % 1296
