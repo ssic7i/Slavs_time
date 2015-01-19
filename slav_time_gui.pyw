@@ -66,6 +66,8 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.progressBar_d.setValue(d)
         self.trayIcon.setToolTip(str(h)+':'+str(c)+':'+str(d))
         self.ui.label_cur_time.setText(str(datetime.datetime.utcnow()))
+        if c == 0 and int(d) < 70:
+            self.trayIcon.showMessage('Current time', str(h)+':'+str(c)+':'+str(d), QSystemTrayIcon.Information, 10000)
 
     #http://stackoverflow.com/questions/5506781/pyqt4-application-on-windows-is-crashing-on-exit
     def closeEvent(self, event):
