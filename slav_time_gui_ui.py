@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'slav_time_gui.ui'
+# Form implementation generated from reading ui file 'C:\Users\sergy\Dropbox\slav_time\slav_time_gui.ui'
 #
-# Created: Mon Jan 19 11:41:26 2015
+# Created: Mon Jan 26 01:27:18 2015
 #      by: PyQt4 UI code generator 4.11.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,10 +26,10 @@ except AttributeError:
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
-        Form.resize(200, 90)
-        Form.setMinimumSize(QtCore.QSize(200, 90))
-        Form.setMaximumSize(QtCore.QSize(200, 90))
-        Form.setBaseSize(QtCore.QSize(200, 90))
+        Form.resize(200, 200)
+        Form.setMinimumSize(QtCore.QSize(200, 200))
+        Form.setMaximumSize(QtCore.QSize(200, 200))
+        Form.setBaseSize(QtCore.QSize(200, 200))
         self.progressBar_h = QtGui.QProgressBar(Form)
         self.progressBar_h.setGeometry(QtCore.QRect(110, 10, 118, 13))
         self.progressBar_h.setMaximum(15)
@@ -71,8 +71,19 @@ class Ui_Form(object):
         self.progressBar_d.setFormat(_fromUtf8(""))
         self.progressBar_d.setObjectName(_fromUtf8("progressBar_d"))
         self.label_cur_time = QtGui.QLabel(Form)
-        self.label_cur_time.setGeometry(QtCore.QRect(10, 70, 201, 16))
+        self.label_cur_time.setGeometry(QtCore.QRect(10, 180, 201, 16))
         self.label_cur_time.setObjectName(_fromUtf8("label_cur_time"))
+        self.label_hour_name = QtGui.QLabel(Form)
+        self.label_hour_name.setGeometry(QtCore.QRect(10, 70, 181, 16))
+        self.label_hour_name.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
+        self.label_hour_name.setFrameShape(QtGui.QFrame.NoFrame)
+        self.label_hour_name.setText(_fromUtf8(""))
+        self.label_hour_name.setObjectName(_fromUtf8("label_hour_name"))
+        self.label_hour_descr = QtGui.QLabel(Form)
+        self.label_hour_descr.setGeometry(QtCore.QRect(10, 90, 181, 16))
+        self.label_hour_descr.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
+        self.label_hour_descr.setText(_fromUtf8(""))
+        self.label_hour_descr.setObjectName(_fromUtf8("label_hour_descr"))
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)

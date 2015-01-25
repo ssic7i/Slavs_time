@@ -1,7 +1,7 @@
+# -*- coding: utf-8 -*-
 __author__ = 'Serhii Sheiko sergy@sheyko.pp.ua'
 # http://energodar.net/vedy/kalendar.html
 # http://midgard-svaor.com/mernye-velichiny-nashix-predkov/
-
 __timezone__ = +2  # timezone with no daylight saving time(winter time) in Kyiv
 
 from PyQt4.QtGui import QSystemTrayIcon
@@ -14,23 +14,24 @@ import datetime
 
 from slav_time_gui_ui import Ui_Form
 
-class MainWindow(QtGui.QMainWindow):
 
+class MainWindow(QtGui.QMainWindow):
     def __init__(self):
         QtGui.QMainWindow.__init__(self)
-        #if os.path.exists('slav_time_gui.ui'):
+        # if os.path.exists('slav_time_gui.ui'):
         #    uic.loadUi('slav_time_gui.ui', self)
         #elif os.path.exists(sys.argv[0][:0-len('slav_time_gui.pyw')] + 'slav_time_gui.ui'):
         #    uic.loadUi(sys.argv[0][:0-len('slav_time_gui.pyw')] + 'slav_time_gui.ui', self)
-        self.ui=Ui_Form()
+        self.ui = Ui_Form()
         self.ui.setupUi(self)
 
         if os.path.exists('slav_time_gui.png'):
             self.setWindowIcon(QtGui.QIcon('slav_time_gui.png'))
             self.trayIcon = QtGui.QSystemTrayIcon(QtGui.QIcon('slav_time_gui.png'))
-        elif os.path.exists(sys.argv[0][:0-len('slav_time_gui.pyw')] + 'slav_time_gui.png'):
-            self.setWindowIcon(QtGui.QIcon(sys.argv[0][:0-len('slav_time_gui.pyw')] + 'slav_time_gui.png'))
-            self.trayIcon = QtGui.QSystemTrayIcon(QtGui.QIcon(sys.argv[0][:0-len('slav_time_gui.pyw')] + 'slav_time_gui.png'))
+        elif os.path.exists(sys.argv[0][:0 - len('slav_time_gui.pyw')] + 'slav_time_gui.png'):
+            self.setWindowIcon(QtGui.QIcon(sys.argv[0][:0 - len('slav_time_gui.pyw')] + 'slav_time_gui.png'))
+            self.trayIcon = QtGui.QSystemTrayIcon(
+                QtGui.QIcon(sys.argv[0][:0 - len('slav_time_gui.pyw')] + 'slav_time_gui.png'))
 
         #self.trayIcon = QtGui.QSystemTrayIcon(QtGui.QIcon('slav_time_gui.png'))
         self.trayIcon.show()
@@ -45,7 +46,8 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.progressBar_c.setValue(c)
         self.ui.progressBar_d.setValue(d)
 
-        self.trayIcon.showMessage('Current time', str(h)+':'+str(c)+':'+str(d), QSystemTrayIcon.Information, 10000)
+        self.trayIcon.showMessage('Current time', str(h) + ':' + str(c) + ':' + str(d), QSystemTrayIcon.Information,
+                                  10000)
 
         self.timer = QtCore.QTimer(self)
         self.timer.setInterval(1000)
@@ -54,7 +56,7 @@ class MainWindow(QtGui.QMainWindow):
 
 
     def run_app(self):
-        #self.trayIcon.show()
+        # self.trayIcon.show()
         h, c, d = sl_time.cur_conv_time(2)
         h = int(h)
         c = int(c)
@@ -64,14 +66,19 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.progressBar_h.setValue(h)
         self.ui.progressBar_c.setValue(c)
         self.ui.progressBar_d.setValue(d)
-        self.trayIcon.setToolTip(str(h)+':'+str(c)+':'+str(d))
+        self.trayIcon.setToolTip(str(h) + ':' + str(c) + ':' + str(d))
         self.ui.label_cur_time.setText(str(datetime.datetime.utcnow()))
+        hour_name, hour_description = sl_time.hours_ru[h]
+        self.ui.label_hour_name.setText(hour_name)
+        self.ui.label_hour_descr.setText(hour_description)
         if c == 0 and int(d) < 70:
-            self.trayIcon.showMessage('Current time', str(h)+':'+str(c)+':'+str(d), QSystemTrayIcon.Information, 10000)
+            self.trayIcon.showMessage('Current time', str(h) + ':' + str(c) + ':' + str(d), QSystemTrayIcon.Information,
+                                      10000)
 
-    #http://stackoverflow.com/questions/5506781/pyqt4-application-on-windows-is-crashing-on-exit
+    # http://stackoverflow.com/questions/5506781/pyqt4-application-on-windows-is-crashing-on-exit
     def closeEvent(self, event):
         sys.exit(0)
+
 
 app = QtGui.QApplication(sys.argv)
 w = MainWindow()

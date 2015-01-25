@@ -1,7 +1,24 @@
+# coding: utf-8
 __author__ = 'Serhii Sheiko sergy@sheyko.pp.ua'
 # http://energodar.net/vedy/kalendar.html
 # http://midgard-svaor.com/mernye-velichiny-nashix-predkov/
-
+hours_ru = [(u'', u''),  # for start from 1-st hour
+            (u'Паобедъ', u'начало нового дня'),
+            (u'Вечиръ', u'появление звёздной росы на Небесах'),
+            (u'Ничь', u'нечётное время 3-х Лун'),
+            (u'Полничь', u'полный путь Лун'),
+            (u'Заутра', u'звёздное утешение росы'),
+            (u'Заура', u'звёздное сияние, заря'),
+            (u'Заурнице', u'окончание звёздного сияния'),
+            (u'Настя', u'утренняя роса'),
+            (u'Сваор', u'восход Солнца'),
+            (u'Утрось', u'успокоение росы'),
+            (u'Поутрось', u'путь собирания успокоенной росы'),
+            (u'Обестина', u'обедня, совместное собрание'),
+            (u'Обед', u'трапеза'),
+            (u'Подани', u'отдых после трапезы'),
+            (u'Утдайни', u'время окончания деяний'),
+            (u'Поудани', u'завершённый день')]
 
 import datetime
 
@@ -12,7 +29,7 @@ def cur_conv_time(timezone):
     cur_hour = int(cur_utc_time.hour)
     cur_minutes = int(cur_utc_time.minute)
     cur_sec = int(cur_utc_time.second)
-    if cur_hour > 17:
+    if cur_hour > 18:
         cur_hour = cur_hour - 18
     else:
         cur_hour =  cur_hour + 6
@@ -31,4 +48,9 @@ def cur_conv_time(timezone):
     #print('Doley:' + str(doley))
     return cov_hour, chastey, doley
 
-cur_conv_time(2)
+#print(cur_conv_time(2))
+#hour, doley, chastey = cur_conv_time(2)
+#name, description = hours_ru[int(hour)]
+#print(name)
+#print(description)
+
