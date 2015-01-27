@@ -20,6 +20,18 @@ hours_ru = [(u'', u''),  # for start from 1-st hour
             (u'Утдайни', u'время окончания деяний'),
             (u'Поудани', u'завершённый день')]
 
+months_ru = [   u'',
+                u'Рамахатъ',
+                u'Айлетъ',
+                u'Бейлетъ',
+                u'Гейлетъ',
+                u'Дайлетъ',
+                u'Элетъ',
+                u'Вэйлетъ',
+                u'Хейлетъ',
+                u'Тайлетъ'
+            ]
+
 import datetime
 
 
@@ -48,9 +60,109 @@ def cur_conv_time(timezone):
     #print('Doley:' + str(doley))
     return cov_hour, chastey, doley
 
+
+def eval_day(timezone):
+    __simple_year__ = 365
+    __st_year__ = 369
+    __one_round_years__ = __simple_year__ * 15 + __st_year__
+    __one_round_life__ = __one_round_years__ * 9
+    __one_svarogs_day__ = __one_round_life__ * 180
+
+    # Days in Svarogs day before 23.09.2012
+    # 23.09.2012 starts 3 of 4 parts of Svarogs day
+    day_before_base = __one_svarogs_day__ / 2
+
+    base_date = datetime.datetime(2012,9,23,18,0,0)
+    corr_timezone = datetime.timedelta(hours=timezone)
+    cur_date = datetime.datetime.utcnow()+corr_timezone
+    days_between_dates = int((cur_date-base_date).days)
+
+    if (days_between_dates + day_before_base) // __one_svarogs_day__ > 0:
+        count_svarogs_days = (days_between_dates + day_before_base) // __one_svarogs_day__
+        days_between_dates = __one_svarogs_day__ * count_svarogs_days - days_between_dates - day_before_base
+        svarogs_days = count_svarogs_days
+    else:
+        svarogs_days = 0
+
+    svarogs_days = svarogs_days + 1
+
+    if days_between_dates // __one_round_life__ > 0:
+        round_lifes = days_between_dates // __one_round_life__
+        days_between_dates = days_between_dates % __one_round_life__
+    else:
+        round_lifes = 0
+
+    round_lifes  = round_lifes + 1
+
+    if days_between_dates // __one_round_years__ > 0:
+        round_years = days_between_dates // __one_round_years__
+        days_between_dates = days_between_dates % __one_round_years__
+    else:
+        round_years = 0
+
+    round_years = round_years + 1
+
+    if days_between_dates // (__simple_year__ * 15) > 0:
+        # big year(16-th)
+        days_between_dates = days_between_dates - (__simple_year__ * 15)
+        year = 16
+        month = days_between_dates // 41 + 1
+        day = days_between_dates % 41
+        return svarogs_days, round_lifes, round_years, year, month, day
+    else:
+        # simple year
+        year = days_between_dates // __simple_year__
+        corr_year = year + 1
+        days_in_cur_year = (days_between_dates - (year * __simple_year__)) + 1
+        days_in_cur_year = days_in_cur_year + 1 # because days_in_cur_year might be 0
+        if days_in_cur_year in range(1, 41+1): # [1..41] 41
+            month = 1
+            date = days_between_dates
+        elif days_in_cur_year in range(41+1, 41+1+40+1): # [42..82] 40
+            month = 2
+            date = days_in_cur_year - 41
+        elif days_in_cur_year in range(41+1+40+1, 41+1+40+1+41+1): # [83..124] 41
+            month = 3
+            date = days_in_cur_year - 41 - 40
+        elif days_in_cur_year in range(41+1+40+1+41+1, 41+1+40+1+41+1+40+1): # [125..165] 40
+            month = 4
+            date = days_in_cur_year - 41 - 40 - 41
+        elif days_in_cur_year in range(41+1+40+1+41+1+40+1, 41+1+40+1+41+1+40+1+41+1): # [166..207] 41
+            month = 5
+            date = days_in_cur_year - 41 - 40 - 41 - 40
+        elif days_in_cur_year in range(41+1+40+1+41+1+40+1+41+1, 41+1+40+1+41+1+40+1+41+1+40+1): # [208..248] 40
+            month = 6
+            date = days_in_cur_year - 41 - 40 - 41 - 40 - 41
+        elif days_in_cur_year in range(41+1+40+1+41+1+40+1+41+1+40+1, 41+1+40+1+41+1+40+1+41+1+40+1+41+1): # [249..290] 41
+            month = 7
+            date = days_in_cur_year - 41 - 40 - 41 - 40 - 41 - 40
+        elif days_in_cur_year in range(41+1+40+1+41+1+40+1+41+1+40+1+41+1, 41+1+40+1+41+1+40+1+41+1+40+1+41+1+40+1): # [291..331] 40
+            month = 8
+            date = days_in_cur_year - 41 - 40 - 41 - 40 - 41 - 40 - 41
+        else:                                     # [332..373] 41 ??
+            month = 9
+            date = days_in_cur_year - 41 - 40 - 41 - 40 - 41 - 40 - 41 - 40
+
+        day = date
+        return svarogs_days, round_lifes, round_years, corr_year, month, day
+
+def cur_day(timezone):
+    svarog_days, round_lifes, round_years, year, month, day = eval_day(timezone)
+    year_in_round_life = (round_lifes-1) * (round_years-1) + year
+    year_in_round_years = year
+    month = month
+    day = day
+    return year_in_round_life, year_in_round_years, month, day
+
+def year_cpsc(timezone):
+    svarog_days, round_lifes, round_years, year, month, day = eval_day(timezone)
+    return year + 7520
+
+
 #print(cur_conv_time(2))
 #hour, doley, chastey = cur_conv_time(2)
 #name, description = hours_ru[int(hour)]
 #print(name)
 #print(description)
 
+#print(cur_day(2))

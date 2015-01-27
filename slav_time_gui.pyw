@@ -57,7 +57,15 @@ class MainWindow(QtGui.QMainWindow):
 
     def run_app(self):
         # self.trayIcon.show()
-        h, c, d = sl_time.cur_conv_time(2)
+        h, c, d = sl_time.cur_conv_time(__timezone__)
+        year_in_round_life, year_in_round_years, month, day = sl_time.cur_day(__timezone__)
+        self.ui.label_round_years.setText(str(year_in_round_years))
+        self.ui.label_round_life.setText(str(year_in_round_life))
+        month_names = sl_time.months_ru
+        month_name = month_names[month]
+        self.ui.label_month.setText(month_name)
+        self.ui.label_date.setText(str(day))
+        self.ui.label_cpsc.setText(str(sl_time.year_cpsc(__timezone__)))
         h = int(h)
         c = int(c)
         self.ui.label_h.setText(str(h))
