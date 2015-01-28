@@ -118,28 +118,28 @@ def eval_day(timezone):
         if days_in_cur_year in range(1, 41+1): # [1..41] 41
             month = 1
             date = days_between_dates
-        elif days_in_cur_year in range(41+1, 41+1+40+1): # [42..82] 40
+        elif days_in_cur_year in range(41+1, 41+1+40): # [42..81] 40
             month = 2
             date = days_in_cur_year - 41
-        elif days_in_cur_year in range(41+1+40+1, 41+1+40+1+41+1): # [83..124] 41
+        elif days_in_cur_year in range(41+1+40, 41+1+40+41): # [82..122] 41
             month = 3
             date = days_in_cur_year - 41 - 40
-        elif days_in_cur_year in range(41+1+40+1+41+1, 41+1+40+1+41+1+40+1): # [125..165] 40
+        elif days_in_cur_year in range(41+1+40+41, 41+1+40+41+40): # [123..162] 40
             month = 4
             date = days_in_cur_year - 41 - 40 - 41
-        elif days_in_cur_year in range(41+1+40+1+41+1+40+1, 41+1+40+1+41+1+40+1+41+1): # [166..207] 41
+        elif days_in_cur_year in range(41+1+40+41+40, 41+1+40+41+40+41): # [163..203] 41
             month = 5
             date = days_in_cur_year - 41 - 40 - 41 - 40
-        elif days_in_cur_year in range(41+1+40+1+41+1+40+1+41+1, 41+1+40+1+41+1+40+1+41+1+40+1): # [208..248] 40
+        elif days_in_cur_year in range(41+1+40+41+40+41, 41+1+40+41+40+41+40): # [204..243] 40
             month = 6
             date = days_in_cur_year - 41 - 40 - 41 - 40 - 41
-        elif days_in_cur_year in range(41+1+40+1+41+1+40+1+41+1+40+1, 41+1+40+1+41+1+40+1+41+1+40+1+41+1): # [249..290] 41
+        elif days_in_cur_year in range(41+1+40+41+40+41+40, 41+1+40+41+40+41+40+41): # [244..284] 41
             month = 7
             date = days_in_cur_year - 41 - 40 - 41 - 40 - 41 - 40
-        elif days_in_cur_year in range(41+1+40+1+41+1+40+1+41+1+40+1+41+1, 41+1+40+1+41+1+40+1+41+1+40+1+41+1+40+1): # [291..331] 40
+        elif days_in_cur_year in range(41+1+40+41+40+41+40+41, 41+1+40+41+40+41+40+41+40): # [285..324] 40
             month = 8
             date = days_in_cur_year - 41 - 40 - 41 - 40 - 41 - 40 - 41
-        else:                                     # [332..373] 41 ??
+        else: # range(41+1+40+41+40+41+40+41+40, 41+1+40+41+40+41+40+41+40+41) [325..365] 41
             month = 9
             date = days_in_cur_year - 41 - 40 - 41 - 40 - 41 - 40 - 41 - 40
 
