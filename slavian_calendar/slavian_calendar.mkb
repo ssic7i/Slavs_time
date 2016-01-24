@@ -69,7 +69,7 @@ assets
 deployments
 {
     # App ID for Facebook apps
-    android-extra-strings='(facebook_app_id,FACEBOOK_APP_ID)'
+    #android-extra-strings='(facebook_app_id,FACEBOOK_APP_ID)'
 }
 
 #Hub deployment options, please do not add anything below this line

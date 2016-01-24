@@ -152,3 +152,14 @@ function year_cpsc()
     local svarog_days, round_lifes, round_years, year, month, day = eval_day()
     return year + 7520
 end
+
+function get_current_day_name_digit()
+    local base_date = tonumber(os.time{year=2012, month=9, day=23, hour=18, min=0, sec=0})
+    local cur_date = tonumber(os.time())
+    local diff_dates = (cur_date - base_date)
+    local temp_div_base_d = 0
+    local temp_div_ost_d = 0
+    temp_div_base_d, temp_div_ost_d = math.modf((diff_dates/86400))
+    local day_num = ((temp_div_base_d+1)%9) -- + 1 т.к. берётся целая часть, а её надо округлить вперёд(разница в секундах первый день делает нулевым, а он должен быть первым)
+    return day_num + 1 -- +1 чтобы понедельник был 1-м а не нулевым
+end
