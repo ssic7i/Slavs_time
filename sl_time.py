@@ -115,9 +115,13 @@ def eval_day(timezone):
         corr_year = year + 1
         days_in_cur_year = (days_between_dates - (year * __simple_year__)) + 1
         days_in_cur_year = days_in_cur_year + 1 # because days_in_cur_year might be 0
+        if days_in_cur_year > __simple_year__:
+            corr_year += 1
+            days_in_cur_year = days_in_cur_year - __simple_year__
+
         if days_in_cur_year in range(1, 41+1): # [1..41] 41
             month = 1
-            date = days_between_dates
+            date = days_in_cur_year
         elif days_in_cur_year in range(41+1, 41+1+40): # [42..81] 40
             month = 2
             date = days_in_cur_year - 41
