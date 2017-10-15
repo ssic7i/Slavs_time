@@ -63,6 +63,7 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.label_round_life.setText(str(year_in_round_life))
         month_names = sl_time.months_ru
         month_name = month_names[month]
+        day_name = sl_time.day_name(__timezone__)
         self.ui.label_month.setText(month_name)
         self.ui.label_date.setText(str(day))
         self.ui.label_cpsc.setText(str(sl_time.year_cpsc(__timezone__)))
@@ -71,6 +72,7 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.label_h.setText(str(h))
         self.ui.label_c.setText(str(c))
         self.ui.label_d.setText(str(d))
+        self.ui.label_day_name.setText(day_name)
         self.ui.progressBar_h.setValue(h)
         self.ui.progressBar_c.setValue(c)
         self.ui.progressBar_d.setValue(d)

@@ -32,6 +32,17 @@ months_ru = [   u'',
                 u'Тайлетъ'
             ]
 
+days_ru = {
+    1: u'Понедельникъ',
+    2: u'Вторникъ',
+    3: u'Тритейникъ',
+    4: u'Четверикъ',
+    5: u'Пятница',
+    6: u'Шестица',
+    7: u'Седьмица',
+    8: u'Осьмица',
+    9: u'Неделя'
+}
 import datetime
 
 
@@ -161,6 +172,20 @@ def cur_day(timezone):
 def year_cpsc(timezone):
     svarog_days, round_lifes, round_years, year, month, day = eval_day(timezone)
     return year + 7520
+
+def day_name(timezone):
+    base_date = datetime.datetime(2012, 9, 22, 18, 0, 0)
+
+    corr_timezone = datetime.timedelta(hours=timezone)
+    cur_date = datetime.datetime.utcnow() + corr_timezone
+
+    days_between_dates = (cur_date-base_date).days
+    day_num = (days_between_dates % 9) + 1
+    if days_ru.has_key(day_num):
+        day_name_str = days_ru[day_num]
+    else:
+        day_name_str = '-----'
+    return day_name_str
 
 
 #print(cur_conv_time(2))

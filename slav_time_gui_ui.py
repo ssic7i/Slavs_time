@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\Users\sergy\Dropbox\slav_time\slav_time_gui.ui'
+# Form implementation generated from reading ui file 'C:\Users\sshejko.TIV\Dropbox\slav_time\slav_time_gui.ui'
 #
-# Created: Tue Jan 27 23:54:18 2015
-#      by: PyQt4 UI code generator 4.11.2
+# Created by: PyQt4 UI code generator 4.11.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -26,10 +25,10 @@ except AttributeError:
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
-        Form.resize(200, 200)
-        Form.setMinimumSize(QtCore.QSize(200, 200))
-        Form.setMaximumSize(QtCore.QSize(200, 200))
-        Form.setBaseSize(QtCore.QSize(200, 200))
+        Form.resize(200, 220)
+        Form.setMinimumSize(QtCore.QSize(200, 220))
+        Form.setMaximumSize(QtCore.QSize(200, 220))
+        Form.setBaseSize(QtCore.QSize(200, 220))
         self.progressBar_h = QtGui.QProgressBar(Form)
         self.progressBar_h.setGeometry(QtCore.QRect(110, 10, 118, 13))
         self.progressBar_h.setMaximum(15)
@@ -71,7 +70,7 @@ class Ui_Form(object):
         self.progressBar_d.setFormat(_fromUtf8(""))
         self.progressBar_d.setObjectName(_fromUtf8("progressBar_d"))
         self.label_cur_time = QtGui.QLabel(Form)
-        self.label_cur_time.setGeometry(QtCore.QRect(10, 180, 201, 16))
+        self.label_cur_time.setGeometry(QtCore.QRect(10, 200, 201, 16))
         self.label_cur_time.setObjectName(_fromUtf8("label_cur_time"))
         self.label_hour_name = QtGui.QLabel(Form)
         self.label_hour_name.setGeometry(QtCore.QRect(10, 70, 181, 16))
@@ -91,7 +90,7 @@ class Ui_Form(object):
         self.label_hour_descr_3.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.label_hour_descr_3.setObjectName(_fromUtf8("label_hour_descr_3"))
         self.label_hour_descr_4 = QtGui.QLabel(Form)
-        self.label_hour_descr_4.setGeometry(QtCore.QRect(10, 160, 111, 16))
+        self.label_hour_descr_4.setGeometry(QtCore.QRect(10, 177, 111, 16))
         self.label_hour_descr_4.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.label_hour_descr_4.setObjectName(_fromUtf8("label_hour_descr_4"))
         self.label_round_years = QtGui.QLabel(Form)
@@ -101,7 +100,7 @@ class Ui_Form(object):
         self.label_round_life.setGeometry(QtCore.QRect(120, 127, 46, 16))
         self.label_round_life.setObjectName(_fromUtf8("label_round_life"))
         self.label_cpsc = QtGui.QLabel(Form)
-        self.label_cpsc.setGeometry(QtCore.QRect(120, 160, 46, 16))
+        self.label_cpsc.setGeometry(QtCore.QRect(120, 177, 46, 16))
         self.label_cpsc.setObjectName(_fromUtf8("label_cpsc"))
         self.label_4 = QtGui.QLabel(Form)
         self.label_4.setGeometry(QtCore.QRect(10, 145, 31, 16))
@@ -115,6 +114,12 @@ class Ui_Form(object):
         self.label_date = QtGui.QLabel(Form)
         self.label_date.setGeometry(QtCore.QRect(160, 145, 31, 16))
         self.label_date.setObjectName(_fromUtf8("label_date"))
+        self.label_6 = QtGui.QLabel(Form)
+        self.label_6.setGeometry(QtCore.QRect(10, 162, 46, 13))
+        self.label_6.setObjectName(_fromUtf8("label_6"))
+        self.label_day_name = QtGui.QLabel(Form)
+        self.label_day_name.setGeometry(QtCore.QRect(50, 162, 111, 16))
+        self.label_day_name.setObjectName(_fromUtf8("label_day_name"))
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -140,4 +145,6 @@ class Ui_Form(object):
         self.label_month.setText(_translate("Form", "0", None))
         self.label_5.setText(_translate("Form", "Число", None))
         self.label_date.setText(_translate("Form", "0", None))
+        self.label_6.setText(_translate("Form", "День", None))
+        self.label_day_name.setText(_translate("Form", "-", None))
 
